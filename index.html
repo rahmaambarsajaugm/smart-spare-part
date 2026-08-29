@@ -1,0 +1,775 @@
+
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Spare Part Monitoring — Offline</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================== -->
+
+<header class="header">
+
+    <div class="header-left">
+
+        <img
+            src="assets/logo-ut.png"
+            class="logo-ut"
+            alt="United Tractors"
+        >
+
+        <div class="header-title">
+
+            <h1>
+                Smart Spare Part Monitoring Dashboard
+            </h1>
+
+            <p>
+                Sangatta Winner
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-right">
+
+        <div class="header-date">
+
+            <i class="fa-regular fa-calendar"></i>
+
+            <span id="currentDate">
+                -
+            </span>
+
+        </div>
+
+
+        <div class="user-profile">
+
+            <div class="user-avatar">
+
+                <i class="fa-solid fa-user"></i>
+
+            </div>
+
+
+           <div class="user-info">
+
+    <strong>Administrator</strong>
+    <span>PT United Tractors • Offline</span>
+
+</div>
+
+<span class="btn-logout" title="Mode Offline"><i class="fa-solid fa-laptop"></i> Offline</span>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================== -->
+
+<main class="main-content">
+
+
+    <!-- HERO -->
+
+    <section class="dashboard-hero">
+
+        <div class="hero-content">
+
+            <span class="hero-label">
+                PT UNITED TRACTORS SITE SANGATTA
+            </span>
+
+            <h2>
+                <span class="ambar-name">
+    <span>A</span>utomatic
+    <span>M</span>onitoring
+    <span>B</span>ackup
+    <span>A</span>nd
+    <span>R</span>eplenishment
+</span>
+            </h2>
+
+            <p>
+                Dibuat untuk memudahkan pemantauan kondisi dan ketersediaan spare part dalam satu tampilan. Melalui dashboard ini, proses monitoring jadi lebih praktis, informasinya lebih jelas, dan kebutuhan spare part bisa diantisipasi lebih awal
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         SUMMARY
+    ========================================== -->
+
+    <section class="summary-section">
+
+
+        <!-- TOTAL PART -->
+
+        <div class="summary-card summary-yellow">
+
+            <div class="summary-icon">
+                <i class="fa-solid fa-gears"></i>
+            </div>
+
+            <div class="summary-info">
+
+                <span>
+                    Total Spare Part
+                </span>
+
+                <h3 id="totalParts">
+                    0
+                </h3>
+
+                <p>
+                    Jenis part terdaftar
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TOTAL STOCK -->
+
+        <div class="summary-card summary-green">
+
+            <div class="summary-icon">
+                <i class="fa-solid fa-boxes-stacked"></i>
+            </div>
+
+            <div class="summary-info">
+
+                <span>
+                    Total Stock
+                </span>
+
+                <h3 id="totalStock">
+                    0
+                </h3>
+
+                <p>
+                    Total unit tersedia
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STOCK MASUK -->
+
+        <div class="summary-card summary-blue">
+
+            <div class="summary-icon">
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>
+
+            <div class="summary-info">
+
+                <span>
+                    Stock Masuk Hari Ini
+                </span>
+
+                <h3 id="stockInToday">
+                    0
+                </h3>
+
+                <p>
+                    Unit barang masuk
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STOCK KELUAR -->
+
+        <div class="summary-card summary-orange">
+
+            <div class="summary-icon">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            <div class="summary-info">
+
+                <span>
+                    Stock Keluar Hari Ini
+                </span>
+
+                <h3 id="stockOutToday">
+                    0
+                </h3>
+
+                <p>
+                    Unit barang keluar
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         INVENTORY
+    ========================================== -->
+
+    <section class="inventory-section">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    INVENTORY
+                </span>
+
+                <h2>
+                    Data Spare Part
+                </h2>
+
+                <p>
+                    Cari, tambah, edit, serta kelola stock spare part.
+                </p>
+
+            </div>
+<button
+                type="button"
+                class="btn btn-primary"
+                id="btnAddPart"
+            >
+
+                <i class="fa-solid fa-plus"></i>
+
+                Tambah Spare Part
+
+            </button>
+</div>
+
+
+
+        <!-- SEARCH -->
+
+        <div class="inventory-toolbar">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Cari Part Number, nama spare part, category, atau location..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <button
+                type="button"
+                class="btn btn-dark"
+                id="btnResetFilter"
+            >
+
+                <i class="fa-solid fa-rotate-right"></i>
+
+                Reset
+
+            </button>
+
+        </div>
+
+
+
+        <!-- TABLE -->
+
+        <div class="table-container">
+
+            <table class="inventory-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>No</th>
+
+                        <th>Part Number</th>
+
+                        <th>Nama Spare Part</th>
+
+                        <th>Category</th>
+
+                        <th>Location</th>
+
+                        <th>Stock</th>
+<th class="action-column">
+        Action
+    </th>
+</tr>
+
+                </thead>
+
+
+                <tbody id="sparePartTableBody">
+                    <!-- Data dari MySQL -->
+                </tbody>
+
+            </table>
+
+
+
+            <div
+                class="empty-state"
+                id="emptyState"
+            >
+
+                <i class="fa-solid fa-box-open"></i>
+
+                <h3>
+                    Data belum tersedia
+                </h3>
+
+                <p>
+                    Tambahkan spare part untuk mulai monitoring inventory.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="table-footer">
+
+            <p>
+
+                Menampilkan
+
+                <strong id="visibleDataCount">
+                    0
+                </strong>
+
+                dari
+
+                <strong id="totalDataCount">
+                    0
+                </strong>
+
+                data spare part.
+
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         HISTORY
+    ========================================== -->
+
+    <section class="history-section">
+
+
+        <div class="history-heading">
+
+            <div>
+
+                <span class="section-label">
+                    ACTIVITY
+                </span>
+
+                <h2>
+                    Riwayat Pergerakan Stock
+                </h2>
+
+                <p>
+                    Aktivitas stock masuk dan stock keluar terbaru.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="btn btn-dark"
+                id="btnRefreshHistory"
+            >
+
+                <i class="fa-solid fa-rotate"></i>
+
+                Refresh
+
+            </button>
+
+        </div>
+
+
+
+        <div class="history-table-container">
+
+            <table class="history-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Tanggal & Jam
+                        </th>
+
+                        <th>
+                            Part Number
+                        </th>
+
+                        <th>
+                            Nama Spare Part
+                        </th>
+
+                        <th>
+                            Transaksi
+                        </th>
+
+                        <th>
+                            Jumlah
+                        </th>
+
+                        <th>
+                            Keterangan
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="historyTableBody">
+                    <!-- dibuat app.js -->
+                </tbody>
+
+            </table>
+
+
+
+            <div
+                class="history-empty"
+                id="historyEmpty"
+            >
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                <p>
+                    Belum ada transaksi stock.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="history-footer">
+
+            Menampilkan
+
+            <strong id="historyCount">
+                0
+            </strong>
+
+            transaksi terbaru.
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     MODAL TAMBAH / EDIT
+========================================== -->
+
+<div
+    class="modal"
+    id="partModal"
+>
+
+
+    <div class="modal-overlay"></div>
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-label">
+                    SPARE PART DATA
+                </span>
+
+                <h2 id="modalTitle">
+                    Tambah Spare Part
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="modal-close"
+                id="btnCloseModal"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+
+        <form id="sparePartForm">
+
+
+            <input
+                type="hidden"
+                id="partId"
+            >
+
+
+            <div class="form-grid">
+
+
+                <!-- PART NUMBER -->
+
+                <div class="form-group">
+
+                    <label for="partNumber">
+                        Part Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="partNumber"
+                        placeholder="Contoh: 600-311-8293"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- NAMA -->
+
+                <div class="form-group">
+
+                    <label for="partName">
+                        Nama Spare Part
+                    </label>
+
+                    <input
+                        type="text"
+                        id="partName"
+                        placeholder="Contoh: Oil Filter"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- CATEGORY -->
+
+  <div class="form-group category-autocomplete">
+
+    <label for="partCategory">
+        Category
+    </label>
+
+    <input
+        type="text"
+        id="partCategory"
+        placeholder="Ketik kategori bebas..."
+        autocomplete="off"
+    >
+
+    <div
+        id="categorySuggestionBox"
+        class="category-suggestion-box"
+    ></div>
+
+</div>
+
+
+
+                <!-- LOCATION -->
+
+                <div class="form-group">
+
+                    <label for="partLocation">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="partLocation"
+                        placeholder="Contoh: Rack A-01"
+                    >
+
+                </div>
+
+
+
+                <!-- STOCK -->
+
+                <div class="form-group">
+
+                    <label for="partStock">
+                        Stock
+                    </label>
+
+                    <input
+                        type="number"
+                        id="partStock"
+                        min="0"
+                        placeholder="0"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="modal-footer">
+
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="btnCancel"
+                >
+                    Batal
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Simpan Data
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================
+     TOAST
+========================================== -->
+
+<div
+    class="toast"
+    id="toast"
+>
+
+    <div class="toast-icon">
+        <i class="fa-solid fa-circle-check"></i>
+    </div>
+
+    <div class="toast-content">
+
+        <strong id="toastTitle">
+            Berhasil
+        </strong>
+
+        <span id="toastMessage">
+            Data berhasil disimpan.
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+     VERSION DIPAKAI UNTUK PAKSA REFRESH CACHE
+========================================== -->
+
+<script src="js/app.js?v=offline-20260828"></script>
+
+</body>
+
+</html>

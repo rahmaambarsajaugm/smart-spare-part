@@ -1,0 +1,1462 @@
+/* =========================================
+   UNITED TRACTORS
+   SPARE PART DASHBOARD
+========================================= */
+
+@import url(
+'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
+);
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family:
+    "Inter",
+    sans-serif;
+
+}
+
+
+body {
+
+    background: #f4f5f7;
+
+    color: #111827;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+
+    height: 90px;
+
+    padding:
+    0 48px;
+
+    background: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+    1px solid #ececec;
+
+}
+
+
+.header-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+}
+
+
+.logo-ut {
+
+    width: 95px;
+
+    object-fit: contain;
+
+}
+
+
+.header-title h1 {
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+}
+
+
+.header-title p {
+
+    margin-top: 2px;
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+
+.header-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+}
+
+
+.header-date {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #555;
+
+}
+
+
+.user-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.user-avatar {
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.user-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.user-info strong {
+
+    font-size: 14px;
+
+}
+
+
+.user-info span {
+
+    margin-top: 2px;
+
+    font-size: 12px;
+
+    color: #888;
+
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.main-content {
+
+    max-width: 1800px;
+
+    margin: auto;
+
+    padding:
+    30px 45px 50px;
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.dashboard-hero {
+
+    height: 190px;
+
+    padding: 36px 48px;
+
+    border-radius: 26px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    color: white;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.82),
+        rgba(0,0,0,.32)
+    ),
+
+    url("../assets/warehouse.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.hero-label {
+
+    display: inline-block;
+
+    padding:
+    8px 18px;
+
+    border-radius: 30px;
+
+    background: #ffd43b;
+
+    color: #111;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+}
+
+
+.hero-content h2 {
+
+    margin-top: 17px;
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+}
+
+
+.hero-content p {
+
+    margin-top: 8px;
+
+    color: #f1f1f1;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================================
+   SUMMARY
+========================================= */
+
+.summary-section {
+
+    margin-top: 28px;
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(4, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.summary-card {
+
+    min-height: 125px;
+
+    padding: 22px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.05);
+
+    transition: .2s;
+
+}
+
+
+.summary-card:hover {
+
+    transform:
+    translateY(-3px);
+
+}
+
+
+.summary-icon {
+
+    width: 62px;
+    height: 62px;
+
+    flex-shrink: 0;
+
+    border-radius: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 24px;
+
+}
+
+
+.summary-yellow
+.summary-icon {
+
+    background: #ffd43b;
+
+    color: #111;
+
+}
+
+
+.summary-green
+.summary-icon {
+
+    background: #5bc56b;
+
+    color: white;
+
+}
+
+
+.summary-blue
+.summary-icon {
+
+    background: #4f8bea;
+
+    color: white;
+
+}
+
+
+.summary-orange
+.summary-icon {
+
+    background: #f1a332;
+
+    color: white;
+
+}
+
+
+.summary-info span {
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+
+.summary-info h3 {
+
+    margin:
+    4px 0;
+
+    font-size: 31px;
+
+    font-weight: 800;
+
+}
+
+
+.summary-info p {
+
+    color: #999;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================
+   INVENTORY
+========================================= */
+
+.inventory-section {
+
+    margin-top: 28px;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 24px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.04);
+
+}
+
+
+.section-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+
+.section-label {
+
+    color: #cca500;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+}
+
+
+.section-heading h2 {
+
+    margin:
+    6px 0;
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+}
+
+
+.section-heading p {
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.btn {
+
+    border: none;
+
+    padding:
+    13px 20px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition: .2s;
+
+}
+
+
+.btn:hover {
+
+    transform:
+    translateY(-1px);
+
+}
+
+
+.btn-primary {
+
+    background: #ffd43b;
+
+    color: #111;
+
+}
+
+
+.btn-dark {
+
+    background: #111;
+
+    color: white;
+
+}
+
+
+.btn-secondary {
+
+    background: #ededed;
+
+    color: #111;
+
+}
+
+
+/* =========================================
+   TOOLBAR
+========================================= */
+
+.inventory-toolbar {
+
+    margin-top: 27px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.search-box {
+
+    flex: 1;
+
+    height: 52px;
+
+    padding:
+    0 18px;
+
+    border-radius: 14px;
+
+    background: #f5f5f5;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+
+.search-box i {
+
+    color: #888;
+
+}
+
+
+.search-box input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    background: transparent;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   TABLE
+========================================= */
+
+.table-container {
+
+    margin-top: 25px;
+
+    overflow-x: auto;
+
+}
+
+
+.inventory-table {
+
+    width: 100%;
+
+    min-width: 1050px;
+
+    border-collapse: collapse;
+
+}
+
+
+.inventory-table th {
+
+    padding: 16px;
+
+    background: #111;
+
+    color: white;
+
+    text-align: left;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+.inventory-table td {
+
+    padding: 15px 16px;
+
+    border-bottom:
+    1px solid #f0f1f3;
+
+    vertical-align: middle;
+
+    font-size: 14px;
+
+}
+
+
+.inventory-table tbody tr {
+
+    transition: .15s;
+
+}
+
+
+.inventory-table tbody tr:hover {
+
+    background: #fafafa;
+
+}
+
+
+.inventory-table td:nth-child(2) {
+
+    font-weight: 700;
+
+}
+
+
+.action-column {
+
+    text-align: center
+    !important;
+
+    min-width: 290px;
+
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.action-buttons {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    white-space: nowrap;
+
+}
+
+
+.stock-action-btn {
+
+    height: 37px;
+
+    padding:
+    0 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: .2s;
+
+}
+
+
+.stock-in {
+
+    background: #ffd43b;
+
+    color: #111;
+
+}
+
+
+.stock-out {
+
+    background: #111;
+
+    color: white;
+
+}
+
+
+.icon-action-btn {
+
+    width: 37px;
+    height: 37px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: .2s;
+
+}
+
+
+.edit-btn {
+
+    background: #e9ecef;
+
+    color: #111;
+
+}
+
+
+.delete-btn {
+
+    background: #df5b50;
+
+    color: white;
+
+}
+
+
+.stock-action-btn:hover,
+.icon-action-btn:hover {
+
+    transform:
+    translateY(-2px);
+
+    box-shadow:
+    0 5px 12px rgba(0,0,0,.12);
+
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state {
+
+    display: none;
+
+    padding: 45px;
+
+    text-align: center;
+
+    color: #777;
+
+}
+
+
+.empty-state i {
+
+    margin-bottom: 12px;
+
+    font-size: 40px;
+
+    color: #bbb;
+
+}
+
+
+.empty-state h3 {
+
+    color: #333;
+
+    margin-bottom: 7px;
+
+}
+
+
+/* =========================================
+   FOOTER TABLE
+========================================= */
+
+.table-footer {
+
+    padding-top: 15px;
+
+    color: #555;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+#partModal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+}
+
+
+.modal-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+    rgba(0,0,0,.48);
+
+}
+
+
+.modal-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 620px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 30px;
+
+    border-radius: 23px;
+
+    background: white;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.2);
+
+}
+
+
+.modal-header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+
+}
+
+
+.modal-label {
+
+    color: #cca500;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+.modal-header h2 {
+
+    margin-top: 5px;
+
+    font-size: 25px;
+
+}
+
+
+.modal-close {
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f2f2f2;
+
+    cursor: pointer;
+
+}
+
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(2, 1fr);
+
+    gap:
+    15px 18px;
+
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.form-group label {
+
+    margin-bottom: 6px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.form-group input {
+
+    width: 100%;
+
+    padding:
+    12px 13px;
+
+    border:
+    1px solid #ddd;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 14px;
+
+}
+
+
+.form-group input:focus {
+
+    border-color:
+    #e3bb00;
+
+    box-shadow:
+    0 0 0 3px rgba(255,212,59,.18);
+
+}
+
+
+.modal-footer {
+
+    margin-top: 24px;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+}
+
+
+/* =========================================
+   TOAST
+========================================= */
+
+.toast {
+
+    display: none;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:1100px) {
+
+    .summary-section {
+
+        grid-template-columns:
+        repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media(max-width:750px) {
+
+    .header {
+
+        height: auto;
+
+        padding: 18px;
+
+    }
+
+    .header-right {
+
+        display: none;
+
+    }
+
+    .main-content {
+
+        padding: 20px;
+
+    }
+
+    .dashboard-hero {
+
+        height: 180px;
+
+        padding: 25px;
+
+    }
+
+    .hero-content h2 {
+
+        font-size: 26px;
+
+    }
+
+    .summary-section {
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .section-heading {
+
+        align-items:
+        flex-start;
+
+        flex-direction:
+        column;
+
+    }
+
+    .inventory-toolbar {
+
+        align-items:
+        stretch;
+
+        flex-direction:
+        column;
+
+    }
+
+    .form-grid {
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+}
+/* =========================================
+   STOCK HISTORY
+========================================= */
+
+.history-section {
+
+    margin-top: 28px;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 24px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.04);
+
+}
+
+
+.history-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+
+.history-heading h2 {
+
+    margin: 6px 0;
+
+    font-size: 26px;
+
+    font-weight: 800;
+
+}
+
+
+.history-heading p {
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+.history-table-container {
+
+    margin-top: 24px;
+
+    overflow-x: auto;
+
+}
+
+
+.history-table {
+
+    width: 100%;
+
+    min-width: 900px;
+
+    border-collapse: collapse;
+
+}
+
+
+.history-table th {
+
+    padding: 15px 16px;
+
+    background: #111;
+
+    color: white;
+
+    text-align: left;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+.history-table td {
+
+    padding: 15px 16px;
+
+    border-bottom:
+    1px solid #f0f1f3;
+
+    font-size: 13px;
+
+    vertical-align: middle;
+
+}
+
+
+.history-table tbody tr:hover {
+
+    background: #fafafa;
+
+}
+
+
+/* BADGE MASUK */
+
+.transaction-in {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+    background: #fff3bf;
+
+    color: #8a6d00;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+/* BADGE KELUAR */
+
+.transaction-out {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+    background: #ededed;
+
+    color: #111;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+.history-empty {
+
+    display: none;
+
+    padding: 40px;
+
+    text-align: center;
+
+    color: #888;
+
+}
+
+
+.history-empty i {
+
+    margin-bottom: 10px;
+
+    font-size: 35px;
+
+    color: #bbb;
+
+}
+
+
+.history-footer {
+
+    padding-top: 15px;
+
+    font-size: 13px;
+
+    color: #666;
+
+}
+/* =========================================
+   CATEGORY AUTOCOMPLETE
+========================================= */
+
+.category-autocomplete {
+    position: relative;
+}
+
+.category-suggestion-box {
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% - 2px);
+    left: 0;
+    right: 0;
+
+    z-index: 10000;
+
+    max-height: 220px;
+
+    overflow-y: auto;
+
+    background: #fff;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.14);
+
+    padding: 6px;
+}
+
+.category-suggestion-item {
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 11px 12px;
+
+    border-radius: 8px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.category-suggestion-item:hover {
+    background: #fff4bf;
+}
+/* AMBAR - HURUF SINGKATAN GOLD */
+
+.ambar-name {
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.ambar-name span {
+    color: #D4A900;
+}
+/* =========================================
+   LOGOUT BUTTON
+========================================= */
+
+.btn-logout {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    background: #111111;
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.btn-logout:hover {
+
+    background: #333333;
+
+    transform: translateY(-1px);
+}
+
+.btn-logout i {
+
+    font-size: 13px;
+}
+/* =========================================================
+   OFFLINE MODE TOOLS
+========================================================= */
+.offline-tools{display:flex;gap:8px;align-items:center;margin-right:12px;}
+.offline-tool{border:1px solid #ddd;background:#fff;border-radius:10px;padding:9px 12px;font-weight:700;cursor:pointer;color:#222;}
+.offline-tool:hover{background:#ffd43b;border-color:#ffd43b;}
+.btn-logout{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
