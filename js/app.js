@@ -72,6 +72,22 @@ function normalizePart(item, index = 0) {
 
 spareParts = spareParts.map((x, i) => normalizePart(x, i));
 
+function updateConnectionStatus(isOnline) {
+    const text = $("connectionText");
+    const badge = $("connectionBadge");
+
+    if (text) {
+        text.textContent = `PT United Tractors • ${isOnline ? "Online" : "Offline"}`;
+    }
+
+    if (badge) {
+        badge.title = isOnline ? "Terhubung ke Google Sheet" : "Tidak terhubung ke Google Sheet";
+        badge.innerHTML = isOnline
+            ? '<i class="fa-solid fa-wifi"></i> Online'
+            : '<i class="fa-solid fa-triangle-exclamation"></i> Offline';
+    }
+}
+
 async function loadFromGoogleSheet({ silent = false } = {}) {
     if (isWriting) return false;
     try {
@@ -90,6 +106,7 @@ async function loadFromGoogleSheet({ silent = false } = {}) {
         spareParts = payload.data.map((item, index) => normalizePart(item, index));
         if (Array.isArray(payload.history)) history = payload.history;
         googleSheetConnected = true;
+        updateConnectionStatus(true);
         saveCache();
         renderTable();
         renderHistory();
@@ -98,6 +115,7 @@ async function loadFromGoogleSheet({ silent = false } = {}) {
         return true;
     } catch (error) {
         googleSheetConnected = false;
+        updateConnectionStatus(false);
         console.error("Gagal membaca Google Sheet:", error);
         if (!silent) alert("Dashboard belum bisa membaca Google Sheet. Data cache terakhir tetap ditampilkan.\n\n" + error.message);
         return false;
@@ -125,9 +143,11 @@ async function postToGoogleSheet(params) {
         const payload = await response.json();
         if (!payload || payload.success !== true) throw new Error(payload?.message || "Perubahan gagal disimpan ke Google Sheet.");
         googleSheetConnected = true;
+        updateConnectionStatus(true);
         return payload;
     } catch (error) {
         googleSheetConnected = false;
+        updateConnectionStatus(false);
         throw error;
     } finally {
         isWriting = false;
