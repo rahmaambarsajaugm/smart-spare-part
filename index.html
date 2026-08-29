@@ -83,12 +83,13 @@
 
            <div class="user-info">
 
-    <strong>Administrator</strong>
+    <strong id="roleLabel">Pengguna</strong>
     <span id="connectionText">PT United Tractors • Menghubungkan...</span>
 
 </div>
 
 <span class="btn-logout" id="connectionBadge" title="Status koneksi"><i class="fa-solid fa-spinner fa-spin"></i> Menghubungkan...</span>
+<button type="button" class="role-logout" id="btnRoleLogout" title="Keluar dari sesi" style="display:none"><i class="fa-solid fa-right-from-bracket"></i> Keluar</button>
 
     </div>
 
@@ -763,12 +764,39 @@
 
 
 
+
+<!-- =========================================
+     ROLE LOGIN
+========================================== -->
+<div class="role-login-overlay" id="roleLoginOverlay">
+    <div class="role-login-card">
+        <img src="assets/logo-ut.png" alt="United Tractors" class="role-login-logo">
+        <span class="section-label">ACCESS CONTROL</span>
+        <h2>Masuk ke Dashboard</h2>
+        <p>Pilih role dan masukkan PIN akses.</p>
+        <form id="roleLoginForm">
+            <label for="loginRole">Role</label>
+            <select id="loginRole" required>
+                <option value="MEKANIK">Mekanik</option>
+                <option value="PIC">PIC Planner</option>
+                <option value="SPV">SPV</option>
+            </select>
+            <label for="loginPin">PIN</label>
+            <input id="loginPin" type="password" autocomplete="current-password" required placeholder="Masukkan PIN">
+            <div class="role-login-error" id="roleLoginError"></div>
+            <button type="submit" class="btn btn-primary role-login-submit" id="btnRoleLogin">
+                <i class="fa-solid fa-right-to-bracket"></i> Masuk
+            </button>
+        </form>
+    </div>
+</div>
+
 <!-- =========================================
      JAVASCRIPT
      VERSION DIPAKAI UNTUK PAKSA REFRESH CACHE
 ========================================== -->
 
-<script src="js/app.js?v=online-20260829"></script>
+<script src="js/app.js?v=role-20260829"></script>
 
 </body>
 

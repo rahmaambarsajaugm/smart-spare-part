@@ -1460,3 +1460,23 @@ body {
 .offline-tool{border:1px solid #ddd;background:#fff;border-radius:10px;padding:9px 12px;font-weight:700;cursor:pointer;color:#222;}
 .offline-tool:hover{background:#ffd43b;border-color:#ffd43b;}
 .btn-logout{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
+
+/* =========================================
+   ROLE ACCESS
+========================================= */
+.role-login-overlay{position:fixed;inset:0;background:rgba(17,24,39,.72);display:flex;align-items:center;justify-content:center;padding:24px;z-index:99999;backdrop-filter:blur(4px)}
+.role-login-overlay.is-hidden{display:none}
+.role-login-card{width:min(420px,100%);background:#fff;border-radius:18px;padding:32px;box-shadow:0 24px 70px rgba(0,0,0,.24)}
+.role-login-logo{width:110px;height:auto;margin-bottom:22px}
+.role-login-card h2{font-size:25px;margin:8px 0 7px}
+.role-login-card>p{font-size:14px;color:#6b7280;margin-bottom:22px}
+.role-login-card form{display:grid;gap:10px}
+.role-login-card label{font-size:13px;font-weight:700;margin-top:4px}
+.role-login-card select,.role-login-card input{width:100%;height:46px;border:1px solid #d1d5db;border-radius:10px;padding:0 13px;background:#fff;font-size:14px;outline:none}
+.role-login-card select:focus,.role-login-card input:focus{border-color:#111827;box-shadow:0 0 0 3px rgba(17,24,39,.08)}
+.role-login-submit{width:100%;justify-content:center;margin-top:10px}
+.role-login-error{min-height:18px;color:#b91c1c;font-size:13px;font-weight:600}
+.role-logout{border:1px solid #e5e7eb;background:#fff;border-radius:9px;padding:9px 12px;font-weight:700;cursor:pointer;white-space:nowrap}
+.role-logout:hover{background:#f9fafb}
+.readonly-note{font-size:12px;color:#6b7280;font-weight:600;white-space:nowrap}
+@media(max-width:750px){.role-login-card{padding:24px}.role-logout{padding:8px 10px}.readonly-note{display:none}}
